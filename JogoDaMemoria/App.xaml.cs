@@ -1,4 +1,5 @@
 ﻿using System;
+using JogoDaMemoria.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace JogoDaMemoria
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Home();
         }
 
         protected override void OnStart()
