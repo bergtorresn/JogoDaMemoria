@@ -8,6 +8,7 @@ namespace JogoDaMemoria.Views {
     public partial class Home : ContentPage {
 
         List<Button> BtnsAtras;
+        List<Button> BtnsFrente;
         List<int> NumeroDeOpcoes = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         List<Color> BackgtoundColors = new List<Color> { Color.Red, Color.Blue, Color.Brown, Color.Fuchsia, Color.Yellow };
 
@@ -17,13 +18,12 @@ namespace JogoDaMemoria.Views {
         public Home() {
             InitializeComponent();
 
-            BtnsAtras = new List<Button>() { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };
+            BtnsAtras = new List<Button> { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };
+            BtnsFrente = new List<Button> { Btn1Frente, Btn2Frente, Btn3Frente, Btn4Frente, Btn5Frente, Btn6Frente, Btn7Frente, Btn8Frente, Btn9Frente, Btn10Frente };
 
             foreach (Color Cor in BackgtoundColors) {
-
                 randomPrimeiroFundo(Cor);
                 randomSegundoFundo(Cor);
-
             }
         }
 
@@ -103,19 +103,22 @@ namespace JogoDaMemoria.Views {
 
         async Task Logica(uint timeout, Button BtnFrente, Button BtnAtras) {
 
-            if (!Jogadas.ContainsKey("jogada" + ContadorDeAcertos)) {
+            if (!Jogadas.ContainsKey("jogada" + ContadorDeAcertos)) { // SE FOR A PRIMEIRA JOGADA
                 List<Button> Buttons = new List<Button> { BtnFrente, BtnAtras };
                 Jogadas.Add("jogada" + ContadorDeAcertos, Buttons);
-            } else {
+
+            } else { // SE FOR A SEGUNDA JOGADA
 
                 var UltimaJogadaDoUsuario = Jogadas["jogada" + ContadorDeAcertos];
                 var CorDaUltimaJogada = UltimaJogadaDoUsuario[1].BackgroundColor;
 
-                if (CorDaUltimaJogada.Equals(BtnAtras.BackgroundColor)) {
+                if (CorDaUltimaJogada.Equals(BtnAtras.BackgroundColor)) { // QUANDO ACERTAR
                     UltimaJogadaDoUsuario.Add(BtnFrente);
                     UltimaJogadaDoUsuario.Add(BtnAtras);
+                    BtnFrente.IsEnabled = false;
+                    BtnAtras.IsEnabled = false;
                     ContadorDeAcertos += 1;
-                } else {
+                } else { // QUANDO ERRAR
                     BtnFrente.RotationY = -270;
                     await BtnAtras.RotateYTo(-90, timeout, Easing.SpringIn);
 
