@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.Home">
     <ContentPage.Content>
-        <StackLayout Spacing="10" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout Spacing="10" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Label Text="NOME DO JOGO" Font="Bold" FontSize="17" Margin="8, 8, 0, 8" />
             <Button Text="Novo jogo" Clicked="NovoJogo_Clicked" />
             <Button Text="Ranking" Clicked="Ranking_Clicked"/>

@@ -23,11 +23,15 @@ namespace JogoDaMemoria.Views {
             MessagingCenter.Subscribe<string>(this, "IncrementarContadorDeJogadas", (incrementar) => {
                 ContadorDeJogadas += 1;
             });
+            MessagingCenter.Subscribe<string>(this, "UsuarioEncontrouTodas", (fim) => {
+                ContadorDeJogadas += 1;
+            });
         }
 
         protected override void OnDisappearing() {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<string>(this, "IncrementarContadorDeJogadas");
+            MessagingCenter.Unsubscribe<string>(this, "UsuarioEncontrouTodas");
         }
 
         public JogoNormal() {
@@ -72,7 +76,7 @@ namespace JogoDaMemoria.Views {
         }
 
         async Task JogadaDoUsuario(Button BtnFrente, Button BtnAtras) {
-            LogiaDoJogo Jogo = new LogiaDoJogo();
+            LogicaDoJogo Jogo = new LogicaDoJogo();
 
             if (!BtnAtras.IsVisible) {
                 await Jogo.Logica(BtnFrente, BtnAtras, ContadorDeJogadas, Jogadas);
@@ -110,6 +114,10 @@ namespace JogoDaMemoria.Views {
         }
         async void Button10_Clicked(object sender, EventArgs e) {
             await JogadaDoUsuario(Btn10Frente, Btn10Atras);
+        }
+
+        void Cancelar_Clicked(object sender, EventArgs e) {
+            Navigation.PopToRootAsync();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace JogoDaMemoria {
         public App() {
             InitializeComponent();
 
-            MainPage = new JogoNormal();
+            MainPage = new NavigationPage(new Home());
         }
 
         protected override void OnStart() {

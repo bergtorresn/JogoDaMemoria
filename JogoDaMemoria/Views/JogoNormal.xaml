@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.JogoNormal">
- <ContentPage.Content>
-        <StackLayout BackgroundColor="Gray">
-            <Grid BackgroundColor="Silver" Padding="10">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Orientation="Vertical">
+            <!-- TEMPO CORRIDO E RECORD ATUAL -->
+            <StackLayout Orientation="Vertical" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tempo:" />
+                    <Label Text="00:25" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Record Atual:" />
+                    <Label Text="01:00" />
+                </StackLayout>
+            </StackLayout>
+            <!-- GRID DO JOGO -->
+            <Grid BackgroundColor="White" Padding="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -14,6 +26,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <!-- BOTÕES -->
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
                     <Button x:Name="Btn1Frente" Clicked="Button1_Clicked" />
                     <Button x:Name="Btn1Atras" IsVisible="false" Clicked="Button1_Clicked" />
@@ -55,7 +68,7 @@
                     <Button x:Name="Btn10Atras" IsVisible="false" Clicked="Button10_Clicked" />
                 </StackLayout>
             </Grid>
-            <Button Padding="20" Text="SAIR" VerticalOptions="EndAndExpand" />
+            <Button Padding="20" Text="SAIR" VerticalOptions="EndAndExpand" Clicked="Cancelar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

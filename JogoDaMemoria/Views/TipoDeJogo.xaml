@@ -1,5 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.TipoDeJogo">
     <ContentPage.Content>
+        <StackLayout Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Tipo de jogo" HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Button Text="Tradicional" TextColor="White" BackgroundColor="Teal" WidthRequest="110" Clicked="Tradicional_Clicked"/>
+                <Button Text="Time attack" TextColor="White" BackgroundColor="Teal" WidthRequest="110" Clicked="TimeAttack_Clicked"/>
+            </StackLayout>
+            <Label Text="Tema do jogo" HorizontalOptions="CenterAndExpand" Margin="0, 30, 0, 0" />
+            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Button Text="Cores" TextColor="White" BackgroundColor="Teal" WidthRequest="110" />
+                <Button Text="Desenhos" TextColor="White" BackgroundColor="Teal" WidthRequest="110" />
+            </StackLayout>
+            <Button Text="Iniciar" TextColor="White" BackgroundColor="Teal" Margin="0, 30, 0, 0" Clicked="Iniciar_Clicked"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
