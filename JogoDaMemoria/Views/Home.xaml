@@ -1,61 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.Home">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Gray">
-            <Grid BackgroundColor="Silver" Padding="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
-                    <Button x:Name="Btn1Frente" Clicked="Button1_Clicked" />
-                    <Button x:Name="Btn1Atras" IsVisible="false" Clicked="Button1_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
-                    <Button x:Name="Btn2Frente" Clicked="Button2_Clicked" />
-                    <Button x:Name="Btn2Atras" IsVisible="false" Clicked="Button2_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                    <Button x:Name="Btn3Frente" Clicked="Button3_Clicked" />
-                    <Button x:Name="Btn3Atras" IsVisible="false" Clicked="Button3_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1">
-                    <Button x:Name="Btn4Frente" Clicked="Button4_Clicked" />
-                    <Button x:Name="Btn4Atras" IsVisible="false" Clicked="Button4_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0">
-                    <Button x:Name="Btn5Frente" Clicked="Button5_Clicked" />
-                    <Button x:Name="Btn5Atras" IsVisible="false" Clicked="Button5_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="1">
-                    <Button x:Name="Btn6Frente" Clicked="Button6_Clicked" />
-                    <Button x:Name="Btn6Atras" IsVisible="false" Clicked="Button6_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0">
-                    <Button x:Name="Btn7Frente" Clicked="Button7_Clicked" />
-                    <Button x:Name="Btn7Atras" IsVisible="false" Clicked="Button7_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="1">
-                    <Button x:Name="Btn8Frente" Clicked="Button8_Clicked" />
-                    <Button x:Name="Btn8Atras" IsVisible="false" Clicked="Button8_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="0">
-                    <Button x:Name="Btn9Frente" Clicked="Button9_Clicked" />
-                    <Button x:Name="Btn9Atras" IsVisible="false" Clicked="Button9_Clicked" />
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="1">
-                    <Button x:Name="Btn10Frente" Clicked="Button10_Clicked" />
-                    <Button x:Name="Btn10Atras" IsVisible="false" Clicked="Button10_Clicked" />
-                </StackLayout>
-            </Grid>
-            <Button Padding="20" Text="SAIR" VerticalOptions="EndAndExpand" />
+        <StackLayout Spacing="10" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="NOME DO JOGO" Font="Bold" FontSize="17" Margin="8, 8, 0, 8" />
+            <Button Text="Novo jogo" Clicked="NovoJogo_Clicked" />
+            <Button Text="Ranking" Clicked="Ranking_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

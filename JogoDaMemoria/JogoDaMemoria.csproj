@@ -14,5 +14,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\RotatePage.xaml" />
   </ItemGroup>
 </Project>

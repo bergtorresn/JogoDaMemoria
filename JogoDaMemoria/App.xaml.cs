@@ -1,32 +1,25 @@
-﻿using System;
-using JogoDaMemoria.Views;
+﻿using JogoDaMemoria.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace JogoDaMemoria
-{
-    public partial class App : Application
-    {
-        public App()
-        {
+namespace JogoDaMemoria {
+    public partial class App : Application {
+        public App() {
             InitializeComponent();
 
-            MainPage = new Home();
+            MainPage = new JogoNormal();
         }
 
-        protected override void OnStart()
-        {
+        protected override void OnStart() {
             // Handle when your app starts
         }
 
-        protected override void OnSleep()
-        {
+        protected override void OnSleep() {
             // Handle when your app sleeps
         }
 
-        protected override void OnResume()
-        {
+        protected override void OnResume() {
             // Handle when your app resumes
         }
     }
