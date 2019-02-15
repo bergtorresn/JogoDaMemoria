@@ -21,9 +21,13 @@ namespace JogoDaMemoria.Views {
 
         void Tradicional_Clicked(object sender, EventArgs e) {
             isTradicional = true;
+            BtnTradicional.BackgroundColor = Color.Black;
+            BtnTimeAttack.BackgroundColor = Color.Teal;
         }
         void TimeAttack_Clicked(object sender, EventArgs e) {
             isTradicional = false;
+            BtnTradicional.BackgroundColor = Color.Teal;
+            BtnTimeAttack.BackgroundColor = Color.Black;
         }
     }
 }
