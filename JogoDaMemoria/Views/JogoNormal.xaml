@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.JogoNormal">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White" Orientation="Vertical">
+        <StackLayout BackgroundColor="Silver" Orientation="Vertical">
             <!-- GRID DO JOGO -->
             <Grid Padding="10">
                 <Grid.RowDefinitions>
@@ -17,47 +17,47 @@
                 </Grid.ColumnDefinitions>
                 <!-- BOTÕES -->
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
-                    <Button x:Name="Btn1Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button1_Clicked" />
-                    <Button x:Name="Btn1Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button1_Clicked" />
+                    <Image x:Name="Btn1Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn1Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
-                    <Button x:Name="Btn2Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button2_Clicked" />
-                    <Button x:Name="Btn2Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button2_Clicked" />
+                    <Image x:Name="Btn2Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn2Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                    <Button x:Name="Btn3Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button3_Clicked" />
-                    <Button x:Name="Btn3Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button3_Clicked" />
+                    <Image x:Name="Btn3Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn3Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1">
-                    <Button x:Name="Btn4Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button4_Clicked" />
-                    <Button x:Name="Btn4Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button4_Clicked" />
+                    <Image x:Name="Btn4Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn4Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0">
-                    <Button x:Name="Btn5Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button5_Clicked" />
-                    <Button x:Name="Btn5Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button5_Clicked" />
+                    <Image x:Name="Btn5Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn5Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="1">
-                    <Button x:Name="Btn6Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button6_Clicked" />
-                    <Button x:Name="Btn6Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button6_Clicked" />
+                    <Image x:Name="Btn6Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn6Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0">
-                    <Button x:Name="Btn7Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button7_Clicked" />
-                    <Button x:Name="Btn7Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button7_Clicked" />
+                    <Image x:Name="Btn7Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn7Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="1">
-                    <Button x:Name="Btn8Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button8_Clicked" />
-                    <Button x:Name="Btn8Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button8_Clicked" />
+                    <Image x:Name="Btn8Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn8Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="0">
-                    <Button x:Name="Btn9Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button9_Clicked" />
-                    <Button x:Name="Btn9Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button9_Clicked" />
+                    <Image x:Name="Btn9Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn9Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="1">
-                    <Button x:Name="Btn10Frente" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Clicked="Button10_Clicked" />
-                    <Button x:Name="Btn10Atras" VerticalOptions="FillAndExpand" IsVisible="false" Clicked="Button10_Clicked" />
+                    <Image x:Name="Btn10Frente" HeightRequest="35" VerticalOptions="FillAndExpand" BackgroundColor="White" Source="interrogacao.png" />
+                    <Image x:Name="Btn10Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
             </Grid>
-            <Button Padding="20" Text="SAIR" BackgroundColor="Silver" VerticalOptions="EndAndExpand" Margin="20, 0, 20, 20" Clicked="Cancelar_Clicked" />
+            <Button Padding="20" Text="SAIR" BackgroundColor="Silver" VerticalOptions="EndAndExpand" Clicked="Cancelar_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

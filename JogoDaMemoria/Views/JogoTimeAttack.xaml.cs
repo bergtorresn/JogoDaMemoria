@@ -8,9 +8,9 @@ namespace JogoDaMemoria.Views {
     public partial class JogoTimeAttack : ContentPage {
 
         // Properties
-
-        List<Button> BtnsAtras;
-        List<Button> BtnsFrente;
+        /*
+        List<Image> BtnsAtras;
+        List<Image> BtnsFrente;
 
 
         List<string> ImgDesenhos = new List<string> { "bob.jpg", "frajola.png", "mickey.jpg", "pernalonga.png", "simpsons.jpg" };
@@ -19,7 +19,7 @@ namespace JogoDaMemoria.Views {
 
         List<int> NumeroDeOpcoes = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         List<Color> BackgroundColors = new List<Color> { Color.Red, Color.Blue, Color.Brown, Color.Fuchsia, Color.Yellow };
-        Dictionary<string, List<Button>> Jogadas = new Dictionary<string, List<Button>>();
+        Dictionary<string, List<Image>> Jogadas = new Dictionary<string, List<Image>>();
         public int ContadorDeJogadas = 1;
 
         // Lifecycle
@@ -48,8 +48,8 @@ namespace JogoDaMemoria.Views {
         // Methods
 
         void PreparandoJogo(bool isDesenho) {
-            BtnsAtras = new List<Button> { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };
-            BtnsFrente = new List<Button> { Btn1Frente, Btn2Frente, Btn3Frente, Btn4Frente, Btn5Frente, Btn6Frente, Btn7Frente, Btn8Frente, Btn9Frente, Btn10Frente };
+            BtnsAtras = new List<Image> { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };
+            BtnsFrente = new List<Image> { Btn1Frente, Btn2Frente, Btn3Frente, Btn4Frente, Btn5Frente, Btn6Frente, Btn7Frente, Btn8Frente, Btn9Frente, Btn10Frente };
 
             if (isDesenho)
             {
@@ -93,7 +93,7 @@ namespace JogoDaMemoria.Views {
             NumeroDeOpcoes.Remove(opcao);
         }
 
-        async Task JogadaDoUsuario(Button BtnFrente, Button BtnAtras) {
+        async Task JogadaDoUsuario(Image BtnFrente, Image BtnAtras) {
             LogicaDoJogo Jogo = new LogicaDoJogo();
 
             if (!BtnAtras.IsVisible) {
@@ -136,6 +136,6 @@ namespace JogoDaMemoria.Views {
 
         void Cancelar_Clicked(object sender, EventArgs e) {
             Navigation.PopToRootAsync();
-        }
+        }*/
     }
 }

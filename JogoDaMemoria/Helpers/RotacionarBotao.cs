@@ -8,7 +8,7 @@ namespace JogoDaMemoria.Helpers {
 
         public RotacionarBotao() { }
 
-        public async Task RotacionarBtnParaAtras(Button BtnFrente, Button BtnAtras) {
+        public async Task RotacionarBtnParaAtras(Image BtnFrente, Image BtnAtras) {
 
             BtnAtras.RotationY = -270;
             await BtnFrente.RotateYTo(-90, timeout, Easing.SpringIn);
@@ -20,7 +20,7 @@ namespace JogoDaMemoria.Helpers {
             BtnAtras.RotationY = 0;
         }
 
-        public async Task RotacionarBtnParaFrente(Button BtnFrente, Button BtnAtras) {
+        public async Task RotacionarBtnParaFrente(Image BtnFrente, Image BtnAtras) {
 
             BtnFrente.RotationY = -270;
             await BtnAtras.RotateYTo(-90, timeout, Easing.SpringIn);

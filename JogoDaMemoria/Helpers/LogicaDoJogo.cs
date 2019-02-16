@@ -10,7 +10,7 @@ namespace JogoDaMemoria.Helpers {
 
         public LogicaDoJogo() { }
 
-        public async Task Logica(Button BtnFrente, Button BtnAtras, int ContadorDeJogadas, Dictionary<string, List<Button>> Jogadas) {
+        public async Task Logica(Image BtnFrente, Image BtnAtras, int ContadorDeJogadas, Dictionary<string, List<Image>> Jogadas) {
 
             RotacionarBotao Rotacionar = new RotacionarBotao();
 
@@ -18,7 +18,7 @@ namespace JogoDaMemoria.Helpers {
 
             if (!Jogadas.ContainsKey("jogada" + ContadorDeJogadas)) { // SE FOR A PRIMEIRA JOGADA
 
-                List<Button> Buttons = new List<Button> { BtnFrente, BtnAtras };
+                List<Image> Buttons = new List<Image> { BtnFrente, BtnAtras };
                 Jogadas.Add("jogada" + ContadorDeJogadas, Buttons);
 
             } else { // SE FOR A SEGUNDA JOGADA
@@ -27,9 +27,9 @@ namespace JogoDaMemoria.Helpers {
                 var BtnFrenteDaUltimaJogadaDoUsuario = Jogadas["jogada" + ContadorDeJogadas][0];
                 var BtnAtrasDaUltimaJogadaDoUsuario = Jogadas["jogada" + ContadorDeJogadas][1];
 
-                var ImgDaUltimaJogada = BtnAtrasDaUltimaJogadaDoUsuario.Image;
+                var ImgDaUltimaJogada = BtnAtrasDaUltimaJogadaDoUsuario.Source.ToString();
 
-                if (ImgDaUltimaJogada.Equals(BtnAtras.Image)) { // QUANDO ACERTAR
+                if (ImgDaUltimaJogada.Equals(BtnAtras.Source.ToString())) { // QUANDO ACERTAR
 
                     UltimaJogadaDoUsuario.Add(BtnFrente);
                     UltimaJogadaDoUsuario.Add(BtnAtras);

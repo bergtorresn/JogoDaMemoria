@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.TipoDeJogo">
     <ContentPage.Content>
-        <StackLayout Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <StackLayout Padding="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Label Text="Tipo de jogo" Font="Bold" HorizontalOptions="CenterAndExpand" />
-            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="CenterAndExpand">
                 <Button x:Name="BtnTradicional" Text="Tradicional" TextColor="White" BackgroundColor="Teal" WidthRequest="120" Clicked="Tradicional_Clicked"/>
                 <Button x:Name="BtnTimeAttack" Text="Time attack" TextColor="White" BackgroundColor="Teal" WidthRequest="120" Clicked="TimeAttack_Clicked"/>
             </StackLayout>
             <Label Text="Tema do jogo" Font="Bold" HorizontalOptions="CenterAndExpand" Margin="0, 30, 0, 0" />
-            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="CenterAndExpand">
                 <Button x:Name="BtnDesenhos" Text="Desenhos" TextColor="White" BackgroundColor="Teal" WidthRequest="120" Clicked="Desenhos_Clicked"/>
                 <Button x:Name="BtnGames" Text="Games" TextColor="White" BackgroundColor="Teal" WidthRequest="120" Clicked="Games_Clicked"/>
             </StackLayout>

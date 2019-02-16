@@ -200,6 +200,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\interrogacao.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\interrogacao.imageset\interrogacao.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -216,5 +218,8 @@
       <Project>{147ACC5C-111C-4846-80F6-648EC7A75682}</Project>
       <Name>JogoDaMemoria</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\interrogacao.imageset\" />
   </ItemGroup>
 </Project>
