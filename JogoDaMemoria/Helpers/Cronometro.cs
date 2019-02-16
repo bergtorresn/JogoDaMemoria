@@ -45,5 +45,10 @@ namespace JogoDaMemoria.Helpers
             Temporizador.Stop();
             Temporizador = null;
         }
+
+        public string TempoCorrido()
+        {
+            return string.Format("{0}:{1:00}:{2:000}", mins, segs, milesegs);
+        }
     }
 }

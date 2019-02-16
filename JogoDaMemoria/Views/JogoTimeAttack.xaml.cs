@@ -34,8 +34,8 @@ namespace JogoDaMemoria.Views
         TapGestureRecognizer tapEvent9 = new TapGestureRecognizer();
         TapGestureRecognizer tapEvent10 = new TapGestureRecognizer();
 
-        public int ContadorDeJogadas = 0;
-        Cronometro timer;
+        public int contadorDeJogadas = 0;
+        Cronometro temporizador;
 
         // Lifecycle
 
@@ -45,19 +45,13 @@ namespace JogoDaMemoria.Views
 
             MessagingCenter.Subscribe<string>(this, "IncrementarContadorDeJogadas", (fim) =>
             {
-                ContadorDeJogadas += 1;
+                contadorDeJogadas += 1;
 
-                if (ContadorDeJogadas.Equals(5))
+                if (contadorDeJogadas.Equals(5))
                 {
-                    using (var conexao = DependencyService.Get<ISQLite>().PegarConexao())
-                    {
-                        UsuarioDAO dao = new UsuarioDAO(conexao);
-                        dao.SalvarUsuario(new Usuario { Nome = "Berg", Tempo = 1000 });
-                    }
-
-                    timer.PararTemporizador();
-                    string tempoCorrido = string.Format("{0}:{1:00}:{2:000}", timer.mins, timer.segs, timer.milesegs);
-                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + tempoCorrido + " tente novamente e melhore o seu tempo!", "Ok");
+                    temporizador.PararTemporizador();
+                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + temporizador.TempoCorrido() + ", tente novamente e melhore o seu tempo!", "Ok");
+                    Navigation.PushAsync(new Formulario(temporizador));
                 }
             });
         }
@@ -77,8 +71,8 @@ namespace JogoDaMemoria.Views
         }
         void IniciarCronometro()
         {
-            timer = new Cronometro();
-            timer.IniciarTemporizador(LabelTempo);
+            temporizador = new Cronometro();
+            temporizador.IniciarTemporizador(LabelTempo);
         }
 
         // Methods
@@ -161,7 +155,7 @@ namespace JogoDaMemoria.Views
 
             if (!BtnAtras.IsVisible)
             {
-                await Jogo.Logica(BtnFrente, BtnAtras, ContadorDeJogadas, Jogadas);
+                await Jogo.Logica(BtnFrente, BtnAtras, contadorDeJogadas, Jogadas);
             }
         }
 

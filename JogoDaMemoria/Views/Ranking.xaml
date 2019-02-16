@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.Ranking">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Margin="0, 10, 0, 0">
-            <Label Text="Ranking" Font="Bold" HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Ranking" Font="Bold" FontSize="24" Margin="8, 8, 0, 0" HorizontalTextAlignment="Center" />
+            <StackLayout Spacing="10" Orientation="Horizontal" Padding="15" HorizontalOptions="FillAndExpand">
+                <Label Text="Nome" Font="Bold" HorizontalOptions="FillAndExpand" />
+                <Label Text="Tempo" Font="Bold" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
             <ListView x:Name="LView" HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell IsEnabled="false">
-                            <StackLayout Spacing="5" Orientation="Horizontal" Padding="15">
-                                <Label Text="{Binding Nome}"/>
-                                <Label Text="{Binding Tempo}"/>
+                            <StackLayout Spacing="10" Orientation="Horizontal" Padding="15" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Nome}" HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding Tempo}" HorizontalOptions="FillAndExpand" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
