@@ -40,7 +40,7 @@ namespace JogoDaMemoria.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
- 
+
             MessagingCenter.Subscribe<string>(this, "IncrementarContadorDeJogadas", (fim) =>
             {
                 ContadorDeJogadas += 1;
@@ -62,13 +62,13 @@ namespace JogoDaMemoria.Views
         {
             InitializeComponent();
 
-            PreparandoJogo(isDesenho);
+            EmbaralhandoImagens(isDesenho);
 
         }
 
         // Methods
 
-        void PreparandoJogo(bool isDesenho)
+        void EmbaralhandoImagens(bool isDesenho)
         {
 
             BtnsAtras = new List<Image> { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };

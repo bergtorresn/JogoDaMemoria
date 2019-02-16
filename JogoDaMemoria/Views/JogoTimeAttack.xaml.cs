@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using JogoDaMemoria.Helpers;
 using Xamarin.Forms;
@@ -32,7 +33,8 @@ namespace JogoDaMemoria.Views
         TapGestureRecognizer tapEvent10 = new TapGestureRecognizer();
 
         public int ContadorDeJogadas = 0;
-
+        Cronometro timer;
+        string TempoDoUsuario { get; set; }
 
         // Lifecycle
 
@@ -46,7 +48,8 @@ namespace JogoDaMemoria.Views
 
                 if (ContadorDeJogadas.Equals(5))
                 {
-                    DisplayAlert("PARABÉNS", "Você encontrou todas, tente o modo Time Attack e prove o seu valor!", "Ok");
+                    timer.Stop();
+                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + TempoDoUsuario + " tente novamente e melhore o seu tempo!", "Ok");
                 }
             });
         }
@@ -61,13 +64,32 @@ namespace JogoDaMemoria.Views
         {
             InitializeComponent();
 
-            PreparandoJogo(isDesenho);
-
+            EmbaralhandoImagens(isDesenho);
+            IniciarCronometro();
+        }
+        void IniciarCronometro()
+        {
+            timer = new Cronometro();
+            timer.SetTime(3, 0); // 2 minutos
+            timer.Start();
+            timer.TimeChanged += () =>
+            {
+                // atualiza o label do tempo corrido
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    TempoDoUsuario = timer.TimeLeftStr;
+                    LabelTempo.Text = TempoDoUsuario;
+                });
+            };
+            timer.CountDownFinished += () =>
+            {  // tempo acabou
+                DisplayAlert("Atenção", "Você atingiu o tempo limite, tente novamente e prove o seu valor!", "Ok");
+            };
         }
 
         // Methods
 
-        void PreparandoJogo(bool isDesenho)
+        void EmbaralhandoImagens(bool isDesenho)
         {
 
             BtnsAtras = new List<Image> { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };
