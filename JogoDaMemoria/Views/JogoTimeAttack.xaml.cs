@@ -34,7 +34,7 @@ namespace JogoDaMemoria.Views
 
         public int ContadorDeJogadas = 0;
         Cronometro timer;
-        string TempoDoUsuario { get; set; }
+        DateTime TempoCorrido { get; set; }
 
         // Lifecycle
 
@@ -49,7 +49,7 @@ namespace JogoDaMemoria.Views
                 if (ContadorDeJogadas.Equals(5))
                 {
                     timer.Stop();
-                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + TempoDoUsuario + " tente novamente e melhore o seu tempo!", "Ok");
+                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + TempoCorrido + " tente novamente e melhore o seu tempo!", "Ok");
                 }
             });
         }
@@ -77,8 +77,8 @@ namespace JogoDaMemoria.Views
                 // atualiza o label do tempo corrido
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    TempoDoUsuario = timer.TimeLeftStr;
-                    LabelTempo.Text = TempoDoUsuario;
+                    TempoCorrido = timer.TimeLeftStr;
+                    LabelTempo.Text = TempoCorrido.ToString();
                 });
             };
             timer.CountDownFinished += () =>
@@ -119,7 +119,7 @@ namespace JogoDaMemoria.Views
 
             if (isDesenho)
             {
-                foreach (String name in ImgDesenhos)
+                foreach (string name in ImgDesenhos)
                 {
                     RandomPrimeiroFundo(name);
                     RandomSegundoFundo(name);
@@ -127,7 +127,7 @@ namespace JogoDaMemoria.Views
             }
             else
             {
-                foreach (String name in ImgGames)
+                foreach (string name in ImgGames)
                 {
                     RandomPrimeiroFundo(name);
                     RandomSegundoFundo(name);

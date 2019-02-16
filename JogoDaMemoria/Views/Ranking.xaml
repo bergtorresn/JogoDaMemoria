@@ -3,11 +3,14 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="Ranking" Font="Bold" HorizontalOptions="CenterAndExpand" />
-            <ListView HasUnevenRows="true">
+            <ListView x:Name="LView" HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell IsEnabled="false">
-                            <StackLayout Orientation="Vertical" Padding="15">
+                            <StackLayout Spacing="5" Orientation="Horizontal" Padding="15">
+                                <Label Text="1"/>
+                                <Label Text="Berg"/>
+                                <Label Text="01:25"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

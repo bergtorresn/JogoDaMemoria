@@ -24,9 +24,9 @@ namespace JogoDaMemoria.Helpers
         public DateTime TimeLeft { get; private set; }
         private long TimeLeftMs => TimeLeft.Ticks / TimeSpan.TicksPerMillisecond;
 
-        public string TimeLeftStr => TimeLeft.ToString("mm:ss");
+        public DateTime TimeLeftStr => TimeLeft;
 
-        public string TimeLeftMsStr => TimeLeft.ToString("mm:ss.fff");
+        public DateTime TimeLeftMsStr => TimeLeft;
 
         private void TimerTick(object sender, EventArgs e)
         {
