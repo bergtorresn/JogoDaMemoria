@@ -17,6 +17,7 @@
     <Folder Include="Views\" />
     <Folder Include="Helpers\" />
     <Folder Include="Model\" />
+    <Folder Include="Dao\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Views\RotatePage.xaml" />

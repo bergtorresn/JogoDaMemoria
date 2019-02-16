@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using JogoDaMemoria.Dao;
 using JogoDaMemoria.Helpers;
+using JogoDaMemoria.Model;
 using Xamarin.Forms;
 
 namespace JogoDaMemoria.Views
@@ -34,7 +36,6 @@ namespace JogoDaMemoria.Views
 
         public int ContadorDeJogadas = 0;
         Cronometro timer;
-        DateTime TempoCorrido { get; set; }
 
         // Lifecycle
 
@@ -48,8 +49,15 @@ namespace JogoDaMemoria.Views
 
                 if (ContadorDeJogadas.Equals(5))
                 {
-                    timer.Stop();
-                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + TempoCorrido + " tente novamente e melhore o seu tempo!", "Ok");
+                    using (var conexao = DependencyService.Get<ISQLite>().PegarConexao())
+                    {
+                        UsuarioDAO dao = new UsuarioDAO(conexao);
+                        dao.SalvarUsuario(new Usuario { Nome = "Berg", Tempo = 1000 });
+                    }
+
+                    timer.PararTemporizador();
+                    string tempoCorrido = string.Format("{0}:{1:00}:{2:000}", timer.mins, timer.segs, timer.milesegs);
+                    DisplayAlert("PARABÉNS", "Você encontrou todas em " + tempoCorrido + " tente novamente e melhore o seu tempo!", "Ok");
                 }
             });
         }
@@ -70,21 +78,7 @@ namespace JogoDaMemoria.Views
         void IniciarCronometro()
         {
             timer = new Cronometro();
-            timer.SetTime(3, 0); // 2 minutos
-            timer.Start();
-            timer.TimeChanged += () =>
-            {
-                // atualiza o label do tempo corrido
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    TempoCorrido = timer.TimeLeftStr;
-                    LabelTempo.Text = TempoCorrido.ToString();
-                });
-            };
-            timer.CountDownFinished += () =>
-            {  // tempo acabou
-                DisplayAlert("Atenção", "Você atingiu o tempo limite, tente novamente e prove o seu valor!", "Ok");
-            };
+            timer.IniciarTemporizador(LabelTempo);
         }
 
         // Methods

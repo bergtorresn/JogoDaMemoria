@@ -1,104 +1,49 @@
 ﻿using System;
 using System.Timers;
+using Xamarin.Forms;
 
 namespace JogoDaMemoria.Helpers
 {
-    public class Cronometro : IDisposable
+    public class Cronometro
     {
-        public Action TimeChanged;
-        public Action CountDownFinished;
 
-        public bool IsRunnign => timer.Enabled;
+        Timer Temporizador { get; set; }
+        public int mins = 0, segs = 0, milesegs = 1;
 
-        public int StepMs
+        public void IniciarTemporizador(Label T)
         {
-            get => (int)timer.Interval;
-            set => timer.Interval = value;
-        }
 
-        private Timer timer = new Timer();
-
-        private DateTime _maxTime = new DateTime(1, 1, 1, 0, 30, 0);
-        private DateTime _minTime = new DateTime(1, 1, 1, 0, 0, 0);
-
-        public DateTime TimeLeft { get; private set; }
-        private long TimeLeftMs => TimeLeft.Ticks / TimeSpan.TicksPerMillisecond;
-
-        public DateTime TimeLeftStr => TimeLeft;
-
-        public DateTime TimeLeftMsStr => TimeLeft;
-
-        private void TimerTick(object sender, EventArgs e)
-        {
-            if (TimeLeftMs > timer.Interval)
+            Temporizador = new Timer
             {
-                TimeLeft = TimeLeft.AddMilliseconds(-timer.Interval);
-                TimeChanged?.Invoke();
-            }
-            else
+                Interval = 1
+            };
+
+            Temporizador.Elapsed += (object sender, ElapsedEventArgs e) =>
             {
-                Stop();
-                TimeLeft = _minTime;
+                milesegs++;
+                if (milesegs >= 1000)
+                {
+                    segs++;
+                    milesegs = 0;
+                }
+                if (segs == 59)
+                {
+                    mins++;
+                    segs = 0;
+                }
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    T.Text = string.Format("{0}:{1:00}:{2:000}", mins, segs, milesegs);
+                });
+            };
 
-                TimeChanged?.Invoke();
-                CountDownFinished?.Invoke();
-            }
+            Temporizador.Start();
         }
 
-        public Cronometro(int min, int sec)
+        public void PararTemporizador()
         {
-            SetTime(min, sec);
-            Init();
+            Temporizador.Stop();
+            Temporizador = null;
         }
-
-        public Cronometro(DateTime dt)
-        {
-            SetTime(dt);
-            Init();
-        }
-
-        public Cronometro()
-        {
-            Init();
-        }
-
-        private void Init()
-        {
-            TimeLeft = _maxTime;
-
-            StepMs = 1000;
-            timer.Elapsed += TimerTick;
-        }
-
-        public void SetTime(DateTime dt)
-        {
-            TimeLeft = _maxTime = dt;
-            TimeChanged?.Invoke();
-        }
-
-        public void SetTime(int min, int sec = 0) => SetTime(new DateTime(1, 1, 1, 0, min, sec));
-
-        public void Start() => timer.Start();
-
-        public void Pause() => timer.Stop();
-
-        public void Stop()
-        {
-            Pause();
-            Reset();
-        }
-
-        public void Reset()
-        {
-            TimeLeft = _maxTime;
-        }
-
-        public void Restart()
-        {
-            Reset();
-            Start();
-        }
-
-        public void Dispose() => timer.Dispose();
     }
 }

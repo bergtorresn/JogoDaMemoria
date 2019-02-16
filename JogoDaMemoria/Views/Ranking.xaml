@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JogoDaMemoria.Views.Ranking">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" Margin="0, 10, 0, 0">
             <Label Text="Ranking" Font="Bold" HorizontalOptions="CenterAndExpand" />
             <ListView x:Name="LView" HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell IsEnabled="false">
                             <StackLayout Spacing="5" Orientation="Horizontal" Padding="15">
-                                <Label Text="1"/>
-                                <Label Text="Berg"/>
-                                <Label Text="01:25"/>
+                                <Label Text="{Binding Nome}"/>
+                                <Label Text="{Binding Tempo}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
