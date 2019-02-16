@@ -27,7 +27,7 @@ namespace JogoDaMemoria.Views
                 }
                 else
                 {
-                    //   Navigation.PushAsync(new JogoTimeAttack(isDesenho));
+                    Navigation.PushAsync(new JogoTimeAttack(IsDesenho));
                 }
             }
             else
