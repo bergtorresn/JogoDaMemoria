@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using JogoDaMemoria.Helpers;
 using Xamarin.Forms;
@@ -31,7 +32,7 @@ namespace JogoDaMemoria.Views
         TapGestureRecognizer tapEvent9 = new TapGestureRecognizer();
         TapGestureRecognizer tapEvent10 = new TapGestureRecognizer();
 
-        public int ContadorDeJogadas = 1;
+        public int ContadorDeJogadas = 0;
 
 
         // Lifecycle
@@ -39,13 +40,15 @@ namespace JogoDaMemoria.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Subscribe<string>(this, "IncrementarContadorDeJogadas", (incrementar) =>
+ 
+            MessagingCenter.Subscribe<string>(this, "IncrementarContadorDeJogadas", (fim) =>
             {
                 ContadorDeJogadas += 1;
-            });
-            MessagingCenter.Subscribe<string>(this, "UsuarioEncontrouTodas", (fim) =>
-            {
-                ContadorDeJogadas += 1;
+
+                if (ContadorDeJogadas.Equals(5))
+                {
+                    DisplayAlert("PARABÉNS", "Você encontrou todas, tente o modo Time Attack e prove o seu valor!", "Ok");
+                }
             });
         }
 
@@ -53,7 +56,6 @@ namespace JogoDaMemoria.Views
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<string>(this, "IncrementarContadorDeJogadas");
-            MessagingCenter.Unsubscribe<string>(this, "UsuarioEncontrouTodas");
         }
 
         public JogoNormal(bool isDesenho)
@@ -98,21 +100,21 @@ namespace JogoDaMemoria.Views
             {
                 foreach (String name in ImgDesenhos)
                 {
-                    randomPrimeiroFundo(name);
-                    randomSegundoFundo(name);
+                    RandomPrimeiroFundo(name);
+                    RandomSegundoFundo(name);
                 }
             }
             else
             {
                 foreach (String name in ImgGames)
                 {
-                    randomPrimeiroFundo(name);
-                    randomSegundoFundo(name);
+                    RandomPrimeiroFundo(name);
+                    RandomSegundoFundo(name);
                 }
             }
         }
 
-        void randomPrimeiroFundo(string Img)
+        void RandomPrimeiroFundo(string Img)
         {
 
             Random random = new Random();
@@ -125,7 +127,7 @@ namespace JogoDaMemoria.Views
             NumeroDeOpcoes.Remove(opcao);
         }
 
-        void randomSegundoFundo(string Img)
+        void RandomSegundoFundo(string Img)
         {
 
             Random random = new Random();
