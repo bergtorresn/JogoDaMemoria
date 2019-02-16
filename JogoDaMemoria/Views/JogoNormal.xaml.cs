@@ -8,10 +8,14 @@ namespace JogoDaMemoria.Views {
     public partial class JogoNormal : ContentPage {
 
         // Properties
-
+        
         List<Button> BtnsAtras;
         List<Button> BtnsFrente;
         List<int> NumeroDeOpcoes = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        List<string> ImgDesenhos = new List<string> {"bob.jpg", "frajola.png", "mickey.jpg", "pernalonga.png", "simpsons.jpg" };
+        List<string> ImgGames = new List<string> { "ryu.jpg", "bomberman.png", "dk.jpg", "mario.png", "pacman.jpg" };
+
         List<Color> BackgroundColors = new List<Color> { Color.Red, Color.Blue, Color.Brown, Color.Fuchsia, Color.Yellow };
         Dictionary<string, List<Button>> Jogadas = new Dictionary<string, List<Button>>();
         public int ContadorDeJogadas = 1;
@@ -34,43 +38,54 @@ namespace JogoDaMemoria.Views {
             MessagingCenter.Unsubscribe<string>(this, "UsuarioEncontrouTodas");
         }
 
-        public JogoNormal() {
+        public JogoNormal(bool isDesenho) {
             InitializeComponent();
-            PreparandoJogo();
+            PreparandoJogo(isDesenho);
         }
 
         // Methods
 
-        void PreparandoJogo() {
+        void PreparandoJogo(bool isDesenho) {
             BtnsAtras = new List<Button> { Btn1Atras, Btn2Atras, Btn3Atras, Btn4Atras, Btn5Atras, Btn6Atras, Btn7Atras, Btn8Atras, Btn9Atras, Btn10Atras };
             BtnsFrente = new List<Button> { Btn1Frente, Btn2Frente, Btn3Frente, Btn4Frente, Btn5Frente, Btn6Frente, Btn7Frente, Btn8Frente, Btn9Frente, Btn10Frente };
 
-            foreach (Color Cor in BackgroundColors) {
-                randomPrimeiroFundo(Cor);
-                randomSegundoFundo(Cor);
-            }
+            if (isDesenho)
+            {
+                foreach (String name in ImgDesenhos)
+                {
+                    randomPrimeiroFundo(name);
+                    randomSegundoFundo(name);
+                }
+            } else
+            {
+                foreach (String name in ImgGames)
+                {
+                    randomPrimeiroFundo(name);
+                    randomSegundoFundo(name);
+                }
+            }                            
         }
 
-        void randomPrimeiroFundo(Color Cor) {
+        void randomPrimeiroFundo(string Img) {
 
             Random random = new Random();
             int numeroRandom = random.Next(0, NumeroDeOpcoes.Count);
             int opcao = NumeroDeOpcoes[numeroRandom];
 
             Button Btn = BtnsAtras[opcao];
-            Btn.BackgroundColor = Cor;
+            Btn.Image = "";
 
             NumeroDeOpcoes.Remove(opcao);
         }
 
-        void randomSegundoFundo(Color Cor) {
+        void randomSegundoFundo(string Img) {
 
             Random random = new Random();
             int numeroRandom = random.Next(0, NumeroDeOpcoes.Count);
             int opcao = NumeroDeOpcoes[numeroRandom];
 
             Button Btn = BtnsAtras[opcao];
-            Btn.BackgroundColor = Cor;
+            Btn.Image = Img;
 
             NumeroDeOpcoes.Remove(opcao);
         }

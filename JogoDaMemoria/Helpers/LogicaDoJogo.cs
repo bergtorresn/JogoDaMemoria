@@ -27,9 +27,9 @@ namespace JogoDaMemoria.Helpers {
                 var BtnFrenteDaUltimaJogadaDoUsuario = Jogadas["jogada" + ContadorDeJogadas][0];
                 var BtnAtrasDaUltimaJogadaDoUsuario = Jogadas["jogada" + ContadorDeJogadas][1];
 
-                var CorDaUltimaJogada = BtnAtrasDaUltimaJogadaDoUsuario.BackgroundColor;
+                var ImgDaUltimaJogada = BtnAtrasDaUltimaJogadaDoUsuario.Image;
 
-                if (CorDaUltimaJogada.Equals(BtnAtras.BackgroundColor)) { // QUANDO ACERTAR
+                if (ImgDaUltimaJogada.Equals(BtnAtras.Image)) { // QUANDO ACERTAR
 
                     UltimaJogadaDoUsuario.Add(BtnFrente);
                     UltimaJogadaDoUsuario.Add(BtnAtras);

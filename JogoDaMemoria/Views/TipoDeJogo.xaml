@@ -9,8 +9,8 @@
             </StackLayout>
             <Label Text="Tema do jogo" Font="Bold" HorizontalOptions="CenterAndExpand" Margin="0, 30, 0, 0" />
             <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
-                <Button x:Name="BtnCores" Text="Cores" TextColor="White" BackgroundColor="Teal" WidthRequest="120" />
-                <Button x:Name="BtnAnimais" Text="Desenhos" TextColor="White" BackgroundColor="Teal" WidthRequest="120" />
+                <Button x:Name="BtnDesenhos" Text="Desenhos" TextColor="White" BackgroundColor="Teal" WidthRequest="120" Clicked="Desenhos_Clicked"/>
+                <Button x:Name="BtnGames" Text="Games" TextColor="White" BackgroundColor="Teal" WidthRequest="120" Clicked="Games_Clicked"/>
             </StackLayout>
             <Button Text="Iniciar" TextColor="White" BackgroundColor="Teal" Margin="0, 30, 0, 0" Clicked="Iniciar_Clicked"/>
         </StackLayout>
