@@ -15,6 +15,16 @@ namespace JogoDaMemoria.Views
         {
             InitializeComponent();
 
+            EntryNome.TextChanged += (sender, e) =>
+            {
+                string _text = EntryNome.Text;
+                if (_text.Length > 6)
+                {
+                    _text = _text.Remove(_text.Length - 1);
+                    EntryNome.Text = _text;
+                }
+            };
+
             cronometro = c;
             tempoFormatado = string.Format("{0}:{1:00}:{2:000}", c.mins, c.segs, c.milesegs);
             LabelTempo.Text = tempoFormatado;
