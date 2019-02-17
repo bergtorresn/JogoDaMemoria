@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using JogoDaMemoria.Dao;
 using JogoDaMemoria.Helpers;
@@ -42,6 +42,8 @@ namespace JogoDaMemoria.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            GetRecordAtual();
 
             MessagingCenter.Subscribe<string>(this, "IncrementarContadorDeJogadas", (fim) =>
             {
@@ -157,6 +159,22 @@ namespace JogoDaMemoria.Views
             {
                 await Jogo.Logica(BtnFrente, BtnAtras, contadorDeJogadas, Jogadas);
             }
+        }
+
+        void GetRecordAtual()
+        {
+            List<Usuario> usuarios;
+            using (var conexao = DependencyService.Get<ISQLite>().PegarConexao())
+            {
+                UsuarioDAO dao = new UsuarioDAO(conexao);
+                usuarios = dao.ListarUsuarios();
+            }
+
+            var sorted = from usr in usuarios
+                         orderby usr.Minutos, usr.Segundos ascending, usr.Milissegundos descending
+                         select usr;
+
+            LabelRecordAtual.Text = sorted.First().Tempo;
         }
 
         // Button Actions

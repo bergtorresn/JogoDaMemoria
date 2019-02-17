@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JogoDaMemoria.Dao;
 using JogoDaMemoria.Helpers;
@@ -15,6 +14,8 @@ namespace JogoDaMemoria.Views
         public Ranking()
         {
             InitializeComponent();
+
+            NavigationPage.SetHasBackButton(this, false);
 
             using (var conexao = DependencyService.Get<ISQLite>().PegarConexao())
             {

@@ -61,7 +61,7 @@ namespace JogoDaMemoria.Views
 
         void ButtonTentarNovamente_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopToRootAsync();
         }
     }
 }
