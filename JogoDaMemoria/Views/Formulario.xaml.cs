@@ -51,7 +51,7 @@ namespace JogoDaMemoria.Views
             if ((EntryNome != null) && (EntryNome.Text != ""))
             {
                 SalvarDadosNoBanco();
-                Navigation.PushModalAsync(new Ranking());
+                Navigation.PushAsync(new Ranking());
             }
             else
             {

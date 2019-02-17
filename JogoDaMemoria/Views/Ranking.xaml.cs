@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JogoDaMemoria.Dao;
 using JogoDaMemoria.Helpers;
@@ -28,6 +29,11 @@ namespace JogoDaMemoria.Views
                          select usr;
 
             LView.ItemsSource = sorted;
+        }
+
+        void Cancelar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync();
         }
     }
 }

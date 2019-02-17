@@ -170,11 +170,21 @@ namespace JogoDaMemoria.Views
                 usuarios = dao.ListarUsuarios();
             }
 
-            var sorted = from usr in usuarios
-                         orderby usr.Minutos, usr.Segundos ascending, usr.Milissegundos descending
-                         select usr;
+            if (usuarios.Count > 0)
+            {
+                var sorted = from usr in usuarios
+                             orderby usr.Minutos, usr.Segundos ascending, usr.Milissegundos descending
+                             select usr;
 
-            LabelRecordAtual.Text = sorted.First().Tempo;
+                LabelRecordAtual.Text = sorted.First().Tempo;
+            }
+            else
+            {
+                LabelRecordAtual.Text = "00:00";
+
+            }
+
+
         }
 
         // Button Actions

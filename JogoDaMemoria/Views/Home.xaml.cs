@@ -13,7 +13,7 @@ namespace JogoDaMemoria.Views {
         }
 
         void Ranking_Clicked(object sender, EventArgs e) {
-            Navigation.PushModalAsync(new Ranking());
+            Navigation.PushAsync(new Ranking());
         }
     }
 }

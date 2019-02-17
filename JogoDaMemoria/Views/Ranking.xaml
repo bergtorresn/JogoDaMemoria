@@ -19,6 +19,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Padding="10" Text="SAIR" TextColor="White" BackgroundColor="Teal" VerticalOptions="EndAndExpand" Clicked="Cancelar_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
