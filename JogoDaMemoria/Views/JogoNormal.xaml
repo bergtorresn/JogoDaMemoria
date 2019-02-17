@@ -57,7 +57,7 @@
                     <Image x:Name="Btn10Atras" HeightRequest="35" VerticalOptions="FillAndExpand" IsVisible="false" BackgroundColor="White" />
                 </StackLayout>
             </Grid>
-            <Button Padding="10" Text="SAIR" BackgroundColor="Silver" VerticalOptions="EndAndExpand" Clicked="Cancelar_Clicked" />
+            <Button Padding="10" Text="SAIR" TextColor="White" BackgroundColor="Teal" VerticalOptions="EndAndExpand" Clicked="Cancelar_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

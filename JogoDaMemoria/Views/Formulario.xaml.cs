@@ -31,7 +31,7 @@ namespace JogoDaMemoria.Views
                     Minutos = cronometro.mins,
                     Segundos = cronometro.segs,
                     Milissegundos = cronometro.milesegs,
-                    Tempo = tempoFormatado
+                    Tempo = tempoFormatado,
                 });
             }
         }

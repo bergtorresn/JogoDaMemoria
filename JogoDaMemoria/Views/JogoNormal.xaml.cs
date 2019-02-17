@@ -47,7 +47,7 @@ namespace JogoDaMemoria.Views
 
                 if (ContadorDeJogadas.Equals(5))
                 {
-                    DisplayAlert("PARABÉNS", "Você encontrou todas, tente o modo Time Attack e prove o seu valor!", "Ok");
+                    DisplayAlert("PARABÉNS", "Você encontrou todas. Agora tente o modo Time Attack e prove o seu valor!", "Ok");
                 }
             });
         }

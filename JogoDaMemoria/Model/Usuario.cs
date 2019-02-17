@@ -11,6 +11,5 @@ namespace JogoDaMemoria.Model
         public int Segundos { get; set; }
         public int Minutos { get; set; }
         public int Milissegundos { get; set; }
-
     }
 }

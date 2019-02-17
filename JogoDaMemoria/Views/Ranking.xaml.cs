@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JogoDaMemoria.Dao;
 using JogoDaMemoria.Helpers;
 using JogoDaMemoria.Model;
@@ -21,7 +22,11 @@ namespace JogoDaMemoria.Views
                 usuarios = dao.ListarUsuarios();
             }
 
-            LView.ItemsSource = usuarios;
+            var sorted = from usr in usuarios
+                         orderby usr.Segundos ascending, usr.Milissegundos descending
+                         select usr;
+
+            LView.ItemsSource = sorted;
         }
     }
 }
