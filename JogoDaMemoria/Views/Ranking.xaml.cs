@@ -23,7 +23,7 @@ namespace JogoDaMemoria.Views
             }
 
             var sorted = from usr in usuarios
-                         orderby usr.Segundos ascending, usr.Milissegundos descending
+                         orderby usr.Minutos ascending, usr.Segundos ascending, usr.Milissegundos descending
                          select usr;
 
             LView.ItemsSource = sorted;
